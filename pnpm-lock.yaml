@@ -21,12 +21,18 @@ importers:
 
   api:
     dependencies:
+      '@hono/node-server':
+        specifier: ^1.14.0
+        version: 1.14.0(hono@4.7.5)
       '@openauthjs/openauth':
         specifier: ^0.4.3
         version: 0.4.3(arctic@2.3.4)(hono@4.7.5)
       '@types/bun':
         specifier: ^1.2.8
         version: 1.2.8
+      hono:
+        specifier: ^4.7.5
+        version: 4.7.5
     devDependencies:
       '@types/node':
         specifier: ^22.14.0

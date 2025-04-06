@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --hot index.ts"
+    "dev": "tsx index.ts --watch"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,9 @@
     "@types/node": "^22.14.0"
   },
   "dependencies": {
+    "@hono/node-server": "^1.14.0",
     "@openauthjs/openauth": "^0.4.3",
-    "@types/bun": "^1.2.8"
+    "@types/bun": "^1.2.8",
+    "hono": "^4.7.5"
   }
 }
