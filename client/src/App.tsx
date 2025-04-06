@@ -6,7 +6,7 @@ function App() {
   const [status, setStatus] = useState("")
 
   async function callApi() {
-    const res = await fetch("http://localhost:3001/", {
+    const res = await fetch(import.meta.env.VITE_API_URL, {
       headers: {
         Authorization: `Bearer ${await auth.getToken()}`,
       },

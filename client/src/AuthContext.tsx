@@ -10,7 +10,7 @@ import { createClient } from "@openauthjs/openauth/client"
 
 const client = createClient({
   clientID: "react",
-  issuer: "http://localhost:3000",
+  issuer: import.meta.env.VITE_AUTH_URL,
 })
 
 interface AuthContextType {
@@ -113,7 +113,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   async function user() {
-    const res = await fetch("http://localhost:3001/", {
+    const res = await fetch(import.meta.env.VITE_API_URL, {
       headers: {
         Authorization: `Bearer ${token.current}`,
       },
