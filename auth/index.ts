@@ -24,6 +24,9 @@ const app = issuer({
   storage: MemoryStorage({
     persist: "./persist.json",
   }),
+  allow: async (input, req) => {
+    return true
+  },
   providers: {
     password: PasswordProvider(
       PasswordUI({
