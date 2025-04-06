@@ -1,5 +1,5 @@
 {
-    "name": "modern-full-stack-starter-template",
+    "name": "openauth-example",
     "private": true,
     "workspaces": [
       "auth",
