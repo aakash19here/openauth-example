@@ -3,6 +3,11 @@ import { subjects } from "../auth/subjects"
 import { Hono } from "hono"
 import { serve } from '@hono/node-server'
 import { cors } from "hono/cors"
+import * as dotenv from "dotenv";
+
+dotenv.config({
+  path: ".env.local"
+})
 
 const headers = {
   "Access-Control-Allow-Origin": "*",
@@ -12,13 +17,13 @@ const headers = {
 
 const client = createClient({
   clientID: "jwt-api",
-  issuer: "http://localhost:3000",
+  issuer: process.env.AUTH_URL,
 })
 
 const app = new Hono()
 
 app.use("*", cors({
-  origin: ["http://localhost:3000", "http://localhost:5173"],
+  origin: [process.env.AUTH_URL ?? "" , process.env.CLIENT_URL ?? ""],
   allowHeaders: [...Object.keys(headers), "Authorization", "Content-Type"],
   allowMethods: ["GET", "POST", "PATCH", "OPTIONS"],
   credentials: true

@@ -6,6 +6,11 @@ import { subjects } from "./subjects"
 import { PasswordProvider } from "@openauthjs/openauth/provider/password"
 import { THEME_TERMINAL as THEME } from "@openauthjs/openauth/ui/theme"
 import { cors } from 'hono/cors'
+import * as dotenv from "dotenv";
+
+dotenv.config({
+  path: ".env.local"
+})
 
 async function getUser(email: string) {
   // Get user from database
@@ -41,7 +46,7 @@ const app = issuer({
 })
 
 app.use("*", cors({
-  origin: ["http://localhost:5173"]
+  origin: [process.env.CLIENT_URL ?? "http://localhost:5173"]
 }))
 
 serve(app)
