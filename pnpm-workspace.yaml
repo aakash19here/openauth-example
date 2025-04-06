@@ -1,0 +1,4 @@
+packages:
+  - "auth"
+  - "api"
+  - "client"
